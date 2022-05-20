@@ -3,13 +3,15 @@ from flask import Flask, request
 #import numpy as np
 import gc
 import pickle
-import sqlite3
+
 import flask
+import json
+from flask import Flask, render_template, jsonify, request, flash, redirect, url_for
 
 
 
-file_directory = 'C:/Users/amaur/Documents/Projects/P_7_OKR/'
-s_directory = 'C:/Users/amaur/Documents/Projects/P_7_OKR/site/'
+file_directory = 'C:/Users/amaur/Documents/Projects/P_7_OKR/site/'
+
 
 with open(file_directory +'model.pkl', 'rb') as f:
     model= pickle.load(f)
@@ -18,40 +20,35 @@ with open(file_directory +'test_sample.pkl', 'rb') as f:
 
 
 app = Flask(__name__)
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
-    return flask.render_template('home-page.html')
+    
+    if flask.request.method == 'POST':
+        return(redirect(url_for('predict'), code=307)) 
+    else:
+        return ('Veuillez compléter le champ. ')
+    
  
 @app.route('/predict', methods=['POST','GET'])
 def predict():
-    if flask.request.method == 'GET':
-        return "Prediction page"
     if flask.request.method == 'POST':
-        sk_id_curr=request.form.to_dict()
-        #sk_id_curr =request.form.get('id')
-        print("#######################")
-        print(sk_id_curr)
+        sk_id_curr=request.get_json()["id"]
         sk_id_curr = int(sk_id_curr)
-        print("#######################")
-        print(sk_id_curr)
-        sk_id_curr = int(sk_id_curr)
-        test_point=test_s.loc(sk_id_curr)
         test_point=test_s.loc[test_s['SK_ID_CURR'] == sk_id_curr]
         predicted_class = model.predict(test_point)
-        predicted_proba = model.predict_proba(test_point)
+        predicted_proba = float(model.predict_proba(test_point)[:, 1])
         if predicted_class == 1:
             prediction = 'Non Solvable'
         else:
             prediction = 'Solvable'
-                
         predicted_proba = 1 - predicted_proba
-            
-           
-        return flask.render_template('result.html', output_proba = predicted_proba, output_class = prediction, sk_id_curr = sk_id_curr)
+        output={'output_proba' : predicted_proba,'output_class' : prediction,'sk_id_curr' : sk_id_curr} 
+        output = json.dumps(output)  
+        return jsonify( output)
            
        
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
 
 
 
