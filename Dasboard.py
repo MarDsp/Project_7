@@ -9,7 +9,7 @@ import json
 import requests as r
 
 
-file_directory = 'https://github.com/MarDsp/Project_7/blob/master/'
+file_directory = 'MarDsp/Project_7/'
 with open(file_directory +'test_sample.pkl', 'rb') as f:
     df= pickle.load(f)
 id_input = st.number_input('Veuillez saisir l\'identifiant d\'un client:',None,None,100001,1 )
