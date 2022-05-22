@@ -19,7 +19,7 @@ API_url_pred = "https://mardsp.pythonanywhere.com/predict"
 
 
 
-@st.cache #mise en cache de la fonction pour exécution unique
+#@st.cache #mise en cache de la fonction pour exécution unique
 #def chargement_explanation(id_input, dataframe, model, sample):
     #return interpretation(str(id_input), 
         #dataframe, 
