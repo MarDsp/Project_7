@@ -18,7 +18,15 @@ API_url_pred = "https://mardsp.pythonanywhere.com/predict"
 
 
 
-
+# Настройка боковой панели
+st.sidebar.title("About")
+st.sidebar.info(
+    """
+    This app is Open Source dashboard.
+    """
+)
+st.sidebar.info("Feel free to collaborate and comment on the work. The github link can be found "
+                "[here](https://github.com/yuliianikolaenko/COVID_dashboard_proglib).")
 #@st.cache #mise en cache de la fonction pour exécution unique
 #def chargement_explanation(id_input, dataframe, model, sample):
     #return interpretation(str(id_input), 
