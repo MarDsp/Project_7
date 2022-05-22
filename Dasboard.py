@@ -9,8 +9,8 @@ import json
 import requests as r
 
 
-file_directory = 'https://github.com/MarDsp/Project_7/blob/master/'
-with open(file_directory +'test_sample.pkl', 'rb') as f:
+file_directory = 'model.pkl'
+with open('test_sample.pkl', 'rb') as f:
     df= pickle.load(f)
 id_input = st.number_input('Veuillez saisir l\'identifiant d\'un client:',None,None,100001,1 )
 API_url= "https://mardsp.pythonanywhere.com"
