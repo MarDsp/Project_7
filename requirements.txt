@@ -1,3 +1,10 @@
 streamlit
-catboost1.0.5-dev
-lime0.2.0.1-dev
+numpy 
+pandas
+time
+pickle
+urllib
+json
+requests
+catboost1.0.5
+lime0.2.0.1
