@@ -27,6 +27,9 @@ list_id=list(df['SK_ID_CURR'].values)
 st.title('Dashboard Scoring Credit')
 st.subheader("Prédictions de scoring client")
 
+st.sidebar.title("Exemples d'ID client...")
+for id in list_id:
+    st.sidebar.info(id)
 #pred page
 #if st.button("Veuillez saisir l\'identifiant d\'un client"):
 id_input = st.number_input('Veuillez saisir l\'identifiant d\'un client:',None,None,100001,1 )
