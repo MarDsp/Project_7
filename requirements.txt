@@ -6,3 +6,4 @@ urllib3==1.26.9
 requests==2.27.1
 catboost==1.0.5
 lime==0.2.0.1
+pickleshare==0.7.5
