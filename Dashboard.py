@@ -48,7 +48,7 @@ if int(id_input) in list_id:
        
         with st.spinner('Chargement des détails de la prédiction...'):
            
-            exp=interpretabilite(df,df_for_client,mod)
+            exp=interpretabilite(df,df_for_client)
             components.html(exp.as_html(), height=800)
 else:
     st.write("Cet ID n'est pas encore dans la base de données, veuillez entrer un autre ID.")
