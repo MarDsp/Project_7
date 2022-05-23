@@ -14,10 +14,10 @@ from lime.lime_tabular import LimeTabularExplainer
 
 
 
-file_directory = 'C:/Users/mascv/Documents/P_7_OKR/Dash/'
-with open(file_directory +'test_sample.pkl', 'rb') as f:
+#file_directory = 'C:/Users/mascv/Documents/P_7_OKR/Dash/'
+with open('test_sample.pkl', 'rb') as f:
     df= pickle.load(f)
-with open(file_directory +'model.pkl', 'rb') as f:
+with open('model.pkl', 'rb') as f:
     mod= pickle.load(f)
 API_url_pred = "https://mardsp.pythonanywhere.com/predict"
 list_id=list(df['SK_ID_CURR'].values)
