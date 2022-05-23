@@ -1,6 +1,5 @@
 import streamlit as st
 import streamlit.components.v1 as components
-from catboost import CatBoostClassifier
 import numpy as np
 import pandas as pd
 import time
