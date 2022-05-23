@@ -7,9 +7,7 @@ import pickle
 from urllib.request import urlopen
 import json
 import requests as r
-import lime
-import lime.lime_tabular
-from lime.lime_tabular import LimeTabularExplainer
+from notebook_p7_02 import interpretabilite
 
 
 
@@ -49,16 +47,6 @@ if int(id_input) in list_id:
        
         with st.spinner('Chargement des détails de la prédiction...'):
            
-            def interpretabilite(dataframe,X,model):
-                little_data=dataframe.drop(['TARGET','SK_ID_CURR'],axis=1)
-                X=X.iloc[0,:]
-                lime1 = LimeTabularExplainer(little_data,
-                                feature_names=little_data.columns, 
-                                class_names=["Solvable","Non Solvable"],
-                                discretize_continuous=False)                      
-                exp = lime1.explain_instance(X,
-                                model.predict_proba)
-                return exp
             exp=interpretabilite(df,df_for_client,mod)
             components.html(exp.as_html(), height=800)
 else:
