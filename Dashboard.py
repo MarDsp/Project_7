@@ -46,7 +46,7 @@ if int(id_input) in list_id:
     st.markdown(chaine)
     st.subheader("Caractéristiques influençant le score")
 
-    if st.button("Explain Results"):
+    if st.button("Détails..."):
        
         with st.spinner('Chargement des détails de la prédiction...'):
             def interpretabilite(dataframe,X,model):
