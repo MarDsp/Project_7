@@ -8,7 +8,7 @@ from urllib.request import urlopen
 import json
 import requests as r
 import import_ipynb
-from notebook_p7_02 import interpretabilite
+from explainer import interpretabilite
 
 
 
