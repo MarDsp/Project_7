@@ -7,7 +7,7 @@ import pickle
 from urllib.request import urlopen
 import json
 import requests as r
-import import_ipynb
+
 from explainer import interpretabilite
 
 
