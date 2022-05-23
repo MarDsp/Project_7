@@ -25,7 +25,7 @@ list_id=list(df['SK_ID_CURR'].values)
 
 
 st.title('Dashboard Scoring Credit')
-st.subheader("Prédictions de scoring client et comparaison à l'ensemble des clients")
+st.subheader("Prédictions de scoring client")
 
 #pred page
 #if st.button("Veuillez saisir l\'identifiant d\'un client"):
@@ -36,7 +36,7 @@ df_for_client=df_for_client.drop(['TARGET','SK_ID_CURR'],axis=1)
 if int(id_input) in list_id:
     with st.spinner('Chargement du score du client...'):
         json_data = r.post(url= API_url_pred,json={'id':int(id_input)}).json()
-        st.markdown("Caractéristiques de client:")
+        st.markdown("Caractéristiques du client:")
         st.dataframe(df_for_client)
         info=json.loads(json_data)
         proba = info['output_proba']
