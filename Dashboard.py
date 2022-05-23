@@ -38,7 +38,6 @@ if int(id_input) in list_id:
         json_data = r.post(url= API_url_pred,json={'id':int(id_input)}).json()
         st.markdown("Caractéristiques de client:")
         st.dataframe(df_for_client)
-        st.dataframe(df)
         info=json.loads(json_data)
         proba = info['output_proba']
         classe_predite = info['output_class']  
