@@ -7,6 +7,8 @@ def interpretabilite(dataframe,X,model):
         X=X.iloc[0,:]
     except:
         X
+    with open('model.pkl', 'rb') as f:
+        model= pickle.load(f)
     lime1 = LimeTabularExplainer(little_data,
                                  feature_names=little_data.columns,
                                  class_names=["Solvable","Non Solvable"],
