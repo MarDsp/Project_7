@@ -1,4 +1,4 @@
-def interpretabilite(dataframe,X,model):
+def interpretabilite(dataframe,X):
     try:
         little_data=dataframe.drop(['TARGET','SK_ID_CURR'],axis=1)
     except:
