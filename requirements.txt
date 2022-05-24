@@ -8,3 +8,4 @@ catboost==1.0.5
 lime==0.2.0.1
 pickleshare==0.7.5
 pickle-mixin==1.0.2
+plotly==5.8.0
