@@ -68,13 +68,13 @@ if int(id_input) in list_id:
             exp=interpretabilite(df,df_for_client,mod)
             components.html(exp.as_html(), height=800)
         #st.subheader("Les distribution des variables importantes")
-    if st.checkbox('Les distribution des variables importantes'):
+    if st.checkbox('Les distributions des variables importantes'):
         selected_var = st.multiselect("Сhoisir des variable:", df.drop(['TARGET','SK_ID_CURR'],axis=1).columns.tolist(), default=var_imp)
         variables=selected_var
         for v in variables:
             f = px.histogram(df, x=v, nbins=15, title="Distribution de "+str(v))
             f.update_xaxes(title=str(v))
-            f.update_yaxes(title="Nombre de classes")
+            f.update_yaxes(title="Nombres des classes")
             st.plotly_chart(f)
             st.write(f"Valeur de la variable {v!r} pour le client avec un ID '{id_input!r}' est: {df_for_client.iloc[0][v]!r}")
 
